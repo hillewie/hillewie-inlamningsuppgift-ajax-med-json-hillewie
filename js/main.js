@@ -21,4 +21,8 @@
 * http://www.omdbapi.com/?apikey=[yourkey]&s=star trek&type=2020
 *
 */
-let url = 'http://www.omdbapi.com/?apikey=[yourkey]=star trek';
+let url = 'http://www.omdbapi.com/?apikey=df23ef2&s=star trek';
+let type = document.getElementById("select-type");
+let year = document.getElementById("select-year");
+
+
