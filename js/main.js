@@ -24,16 +24,11 @@ function getanswer(){
   let url = 'http://www.omdbapi.com/?apikey=df23ef2';
   let userInput = document.getElementById("userinput").value;
   let type = document.getElementById("select-type").value;
-  //let year = document.getElementById("select-year").value;
   url += '&s=' + userInput;
   
-   if (type.trim() != "Type") {
-     url += '&type=' + type;
+   if (type.trim() != "Type") { // trimmar innehållet
+     url += '&type=' + type;  
   } 
- 
-  //  if (year.trim() !="Release year") {
-  //    url += '&y=' + year;
-  //  }
    console.log(url)
  
    fetch(url)
@@ -45,23 +40,21 @@ function getanswer(){
    })
    .then((data) => {
      var output = JSON.parse(data);
+     document.getElementById("result").innerHTML = ''; // nollställer sökningen
  
-     for (var movie of output['Search']) {
+     for (var movie of output['Search']) { //loopar genom hämtade url med användarens sökning
        getMovie(movie)
-       console.log(movie)
      }
-   
+     
    })
-   .catch((error) => {
+   .catch((error) => { //fångar fel
        console.log(error);
    })
- 
- 
+
  function getMovie(input) {
-   let showResult = document.getElementById("result");  // html-display
-   let htmlResult = 
+   let showResult = document.getElementById("result");
+   let htmlResult = //html skrukturen för varje film hämtning
    `<div class="row">
-      <div class="col-md-3">
         <img src="${input.Poster}">
         <h2>${input.Title}</h2>
           <ul class="list-group">
@@ -70,10 +63,8 @@ function getanswer(){
             <li class="list-group-item"><strong>Imdb ID:</strong>${input.imdbID}</li>
             <li class="list-group-item"><strong>IMDB page:</strong><a href='https://www.imdb.com/title/${input.imdbID}/' target='_blank'> Home page</a></li>
           </ul>
-      </div>
   </div>`;
 
    showResult.innerHTML += htmlResult;
  }
-  //Töm diven efter varje nytt sök!
- }
+}
