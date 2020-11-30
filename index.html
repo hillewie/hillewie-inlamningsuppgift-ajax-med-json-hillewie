@@ -9,8 +9,8 @@
 	<div class="container">
 		<h3 class="text-center">Search For Any Movie</h3>
 
-		<form id="searchForm">
-			<input onkeyup="getanswer(document.getElementById('userinput').value)" type="text" class="form-controll" id="userinput" placeholder="Search Movies...">
+		<form id="searchForm" onsubmit="event.preventDefault();getanswer();">
+			<input type="text" id="userinput" placeholder="Search Movies..."></input>
 		
 			<select name="type" id="select-type">
 				<option> Type </option>
@@ -19,26 +19,28 @@
 				<option value="documentrys"> Documentrys </option>
 			</select>
 		
-			<select name="year" id="select-year">
+			<!-- <select name="year" id="select-year">
 				<option> Release year </option>
 				<option value="2000"> 2000 </option>
-				<option value="2000"> 2001 </option>
-				<option value="2000"> 2002 </option>
-				<option value="2000"> 2003 </option>
-				<option value="2000"> 2004 </option>
-				<option value="2000"> 2005 </option>
+				<option value="2001"> 2001 </option>
+				<option value="2002"> 2002 </option>
+				<option value="2003"> 2003 </option>
+				<option value="2004"> 2004 </option>
+				<option value="2005"> 2005 </option>
 				<option value="2006"> 2006 </option>
 				<option value="2007"> 2007 </option>
 				<option value="2008"> 2008 </option>
-			</select>
+			</select> -->
 		
 			<button id="search-btn">Search</button>
 		</form>
 
-			 <div id="answer"></div>
-	</div>
+		
+			 <div id="result" class="row">
+			 </div>
+		</div>
 
-	<script></script>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
